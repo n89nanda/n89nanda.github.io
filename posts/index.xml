@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Nanda Bhat blog</title>
-    <link>https://n89nanda.github.io/nandabhat.github.io/posts/</link>
+    <link>https://n89nanda.github.io/posts/</link>
     <description>Recent content in Posts on Nanda Bhat blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Aug 2022 17:36:21 -0400</lastBuildDate><atom:link href="https://n89nanda.github.io/nandabhat.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Aug 2022 17:36:21 -0400</lastBuildDate><atom:link href="https://n89nanda.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
-      <link>https://n89nanda.github.io/nandabhat.github.io/posts/my-first-post/</link>
+      <link>https://n89nanda.github.io/posts/my-first-post/</link>
       <pubDate>Sat, 20 Aug 2022 17:36:21 -0400</pubDate>
       
-      <guid>https://n89nanda.github.io/nandabhat.github.io/posts/my-first-post/</guid>
+      <guid>https://n89nanda.github.io/posts/my-first-post/</guid>
       <description>pyeventbus pyeventbus is a publish/subscribe event bus for Python 2.7.
 simplifies the communication between python classes decouples event senders and receivers performs well threads, greenlets, queues and concurrent processes avoids complex and error-prone dependencies and life cycle issues makes code simpler has advanced features like delivery threads, workers and spawning different processes, etc. is tiny (3KB archive) pyeventbus in 3 steps:
 Define events::
