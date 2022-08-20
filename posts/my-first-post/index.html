@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.101.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My First Post &middot; Nanda Bhat blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://nandabhat.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://nandabhat.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://nandabhat.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://nandabhat.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://nandabhat.github.io/"><h1>Nanda Bhat blog</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://nandabhat.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2022. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>My First Post</h1>
+  <time datetime=2022-08-20T17:36:21-0400 class="post-date">Sat, Aug 20, 2022</time>
+  <h1 id="pyeventbus">pyeventbus</h1>
+<p>pyeventbus is a publish/subscribe event bus for Python 2.7.</p>
+<ul>
+<li>simplifies the communication between python classes</li>
+<li>decouples event senders and receivers</li>
+<li>performs well threads, greenlets, queues and concurrent processes</li>
+<li>avoids complex and error-prone dependencies and life cycle issues</li>
+<li>makes code simpler</li>
+<li>has advanced features like delivery threads, workers and spawning different processes, etc.</li>
+<li>is tiny (3KB archive)</li>
+</ul>
+<p>pyeventbus in 3 steps:</p>
+<ol>
+<li>
+<p>Define events::</p>
+<pre><code>     class MessageEvent:
+         # Additional fields and methods if needed
+         def __init__(self):
+             pass
+</code></pre>
+</li>
+<li>
+<p>Prepare subscribers: Declare and annotate your subscribing method, optionally specify a thread mode::</p>
+<pre><code>     from pyeventbus import *
+
+     @subscribe(onEvent=MessageEvent)
+     def func(self, event):
+         # Do something
+         pass
+</code></pre>
+<p>Register your subscriber. For example, if you want to register a class in Python::</p>
+<pre><code>     from pyeventbus import *
+
+     class MyClass:
+         def __init__(self):
+             pass
+
+         def register(self, myclass):
+             PyBus.Instance().register(myclass, self.__class__.__name__)
+
+     # then during initilization
+
+     myclass = MyClass()
+     myclass.register(myclass)
+</code></pre>
+</li>
+<li>
+<p>Post events::</p>
+<pre><code>     from pyeventbus import *
+
+     class MyClass:
+         def __init__(self):
+             pass
+
+         def register(self, myclass):
+             PyBus.Instance().register(myclass, self.__class__.__name__)
+
+         def postingAnEvent(self):
+             PyBus.Instance().post(MessageEvent())
+
+      myclass = MyClass()
+      myclass.register(myclass)
+      myclass.postingAnEvent()
+</code></pre>
+</li>
+</ol>
+<p>Modes: pyeventbus can run the subscribing methods in 5 different modes</p>
+<ol>
+<li>
+<p>POSTING::</p>
+<p>Runs the method in the same thread as posted. For example, if an event is posted from main thread, the subscribing method also runs in the main thread. If an event is posted in a seperate thread, the subscribing method runs in the same seperate method</p>
+<p>This is the default mode, if no mode has been provided::</p>
+<p>@subscribe(threadMode = Mode.POSTING, onEvent=MessageEvent)
+def func(self, event):
+# Do something
+pass</p>
+</li>
+<li>
+<p>PARALLEL::</p>
+<p>Runs the method in a seperate python thread::</p>
+<p>@subscribe(threadMode = Mode.PARALLEL, onEvent=MessageEvent)
+def func(self, event):
+# Do something
+pass</p>
+</li>
+<li>
+<p>GREENLET::</p>
+<p>Runs the method in a greenlet using gevent library::</p>
+<p>@subscribe(threadMode = Mode.GREENLET, onEvent=MessageEvent)
+def func(self, event):
+# Do something
+pass</p>
+</li>
+<li>
+<p>BACKGROUND::</p>
+<p>Adds the subscribing methods to a queue which is executed by workers::</p>
+<p>@subscribe(threadMode = Mode.BACKGROUND, onEvent=MessageEvent)
+def func(self, event):
+# Do something
+pass</p>
+</li>
+<li>
+<p>CONCURRENT::</p>
+<p>Runs the method in a seperate python process::</p>
+<p>@subscribe(threadMode = Mode.CONCURRENT, onEvent=MessageEvent)
+def func(self, event):
+# Do something
+pass</p>
+</li>
+</ol>
+<p>Adding pyeventbus to your project::</p>
+<pre><code>pip install pyeventbus
+</code></pre>
+<p>Example::</p>
+<pre><code>git clone https://github.com/n89nanda/pyeventbus.git
+
+cd pyeventbus
+
+virtualenv venv
+
+source venv/bin/activate
+
+pip install pyeventbus
+
+python example.py
+</code></pre>
+<p>Benchmarks and Performance::</p>
+<pre><code>    Refer /pyeventbus/tests/benchmarks.txt for performance benchmarks on CPU, I/O and networks heavy tasks.
+    
+    Run /pyeventbus/tests/test.sh to generate the same benchmarks.
+    
+    Performance comparison between all the modes with Python and Cython
+</code></pre>
+<p>.. image:: pyeventbus/tests/Benchmarks.png
+:width: 2000px
+:align: center
+:height: 1000px
+:alt: alternate text</p>
+<p>Inspiration</p>
+<pre><code>    Inspired by Eventbus from greenrobot: https://github.com/greenrobot/EventBus
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
