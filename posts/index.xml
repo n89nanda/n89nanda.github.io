@@ -8,15 +8,14 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Aug 2022 17:36:21 -0400</lastBuildDate><atom:link href="https://blog.nandabhat.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
+      <title>How to create a blog using Hugo and Github Pages</title>
       <link>https://blog.nandabhat.com/posts/my-first-post/</link>
       <pubDate>Sat, 20 Aug 2022 17:36:21 -0400</pubDate>
       
       <guid>https://blog.nandabhat.com/posts/my-first-post/</guid>
-      <description>pyeventbus pyeventbus is a publish/subscribe event bus for Python 2.7.
-simplifies the communication between python classes decouples event senders and receivers performs well threads, greenlets, queues and concurrent processes avoids complex and error-prone dependencies and life cycle issues makes code simpler has advanced features like delivery threads, workers and spawning different processes, etc. is tiny (3KB archive) pyeventbus in 3 steps:
-Define events::
-class MessageEvent: # Additional fields and methods if needed def __init__(self): pass Prepare subscribers: Declare and annotate your subscribing method, optionally specify a thread mode::</description>
+      <description>We will be building a blog from scratch using the amazing Hugo framework and deploying it for free using Github Pages with a custom subdomain!
+Why Hugo? Hugo is simple, fast and is written in Go. It has amazing community support and a wide varity of themes.
+Personally, I just want to write my blog posts as markdown files, push it to github and want it to be live with zero work and Hugo allows me to do just that!</description>
     </item>
     
   </channel>

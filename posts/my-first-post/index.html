@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My First Post &middot; Nanda Bhat blog</title>
+  <title>How to create a blog using Hugo and Github Pages &middot; Nanda Bhat blog</title>
   <meta name="description" content="" />
 
   
@@ -27,20 +27,20 @@
   
 </head>
 
-  <body class=" ">
+  <body class="theme-base-0f ">
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="https://blog.nandabhat.com/"><h1>Nanda Bhat blog</h1></a>
       <p class="lead">
-      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+       Personal blog 
       </p>
     </div>
 
     <nav>
       <ul class="sidebar-nav">
         <li><a href="https://blog.nandabhat.com/">Home</a> </li>
-        
+        <li><a href="https://github.com/n89nanda/"> Github </a></li><li><a href="https://www.linkedin.com/in/nanda-b-949a9225/"> LinkedIn </a></li>
       </ul>
     </nav>
 
@@ -50,149 +50,166 @@
 
     <main class="content container">
     <div class="post">
-  <h1>My First Post</h1>
+  <h1>How to create a blog using Hugo and Github Pages</h1>
   <time datetime=2022-08-20T17:36:21-0400 class="post-date">Sat, Aug 20, 2022</time>
-  <h1 id="pyeventbus">pyeventbus</h1>
-<p>pyeventbus is a publish/subscribe event bus for Python 2.7.</p>
+  <p>We will be building a blog from scratch using the amazing <a href="https://gohugo.io/">Hugo</a> framework and deploying it for free using <a href="https://pages.github.com/">Github Pages</a> with a custom subdomain!</p>
+<h2 id="why-hugo">Why Hugo?</h2>
+<p>Hugo is simple, fast and is written in Go. It has amazing community support and a wide varity of themes.</p>
+<p>Personally, I just want to write my blog posts as markdown files, push it to github and want it to be live with zero work and Hugo allows me to do just that!</p>
+<h2 id="contents">Contents</h2>
 <ul>
-<li>simplifies the communication between python classes</li>
-<li>decouples event senders and receivers</li>
-<li>performs well threads, greenlets, queues and concurrent processes</li>
-<li>avoids complex and error-prone dependencies and life cycle issues</li>
-<li>makes code simpler</li>
-<li>has advanced features like delivery threads, workers and spawning different processes, etc.</li>
-<li>is tiny (3KB archive)</li>
+<li><a href="#installs-and-setups">Installs and setups</a></li>
+<li><a href="#create-a-new-blog-and-run-it-locally">Create a new blog and run it locally</a></li>
+<li><a href="#create-a-new-post-and-verify-it-locally">Create a new post and verify it locally</a></li>
+<li><a href="#generate-static-files-and-see-it-live-in-github-pages">Generate static files and see it live in Github Pages</a></li>
+<li><a href="#enable-custom-sub-domain">Enable Custom Sub Domain</a></li>
 </ul>
-<p>pyeventbus in 3 steps:</p>
+<h2 id="installs-and-setups">Installs and setups</h2>
 <ol>
-<li>
-<p>Define events::</p>
-<pre><code>     class MessageEvent:
-         # Additional fields and methods if needed
-         def __init__(self):
-             pass
-</code></pre>
+<li>Install <code>hugo</code> CLI using homebrew
+<ul>
+<li><code>brew install hugo</code></li>
+</ul>
 </li>
-<li>
-<p>Prepare subscribers: Declare and annotate your subscribing method, optionally specify a thread mode::</p>
-<pre><code>     from pyeventbus import *
-
-     @subscribe(onEvent=MessageEvent)
-     def func(self, event):
-         # Do something
-         pass
-</code></pre>
-<p>Register your subscriber. For example, if you want to register a class in Python::</p>
-<pre><code>     from pyeventbus import *
-
-     class MyClass:
-         def __init__(self):
-             pass
-
-         def register(self, myclass):
-             PyBus.Instance().register(myclass, self.__class__.__name__)
-
-     # then during initilization
-
-     myclass = MyClass()
-     myclass.register(myclass)
-</code></pre>
+<li>Setup 2 new git repository using GitHub. For e.g. Lets say your account name is <code>rockstarblogger</code>.
+<ul>
+<li><code>rockstarblogger/blog</code> - This will contain our static blogs + Hugo project files</li>
+<li><code>rockstarblogger/rockstarblogger.github.io</code> - This will contain only our final static files required for our blog.
+<ul>
+<li>Create an empty <code>README.md</code> commit. This will come in handy later.</li>
+</ul>
 </li>
-<li>
-<p>Post events::</p>
-<pre><code>     from pyeventbus import *
-
-     class MyClass:
-         def __init__(self):
-             pass
-
-         def register(self, myclass):
-             PyBus.Instance().register(myclass, self.__class__.__name__)
-
-         def postingAnEvent(self):
-             PyBus.Instance().post(MessageEvent())
-
-      myclass = MyClass()
-      myclass.register(myclass)
-      myclass.postingAnEvent()
-</code></pre>
+</ul>
+<blockquote>
+<p>Note the name of the second repo, Github makes it easy if you follow the naming convention of &lt;account_name&gt;.github.io</p>
+</blockquote>
 </li>
+<li>Choose a <a href="https://themes.gohugo.io/">Hugo Theme</a>. We will be using <a href="https://themes.gohugo.io/themes/hyde/">Hyde</a> for this new blog.</li>
 </ol>
-<p>Modes: pyeventbus can run the subscribing methods in 5 different modes</p>
+<h2 id="create-a-new-blog-and-run-it-locally">Create a new blog and run it locally</h2>
 <ol>
-<li>
-<p>POSTING::</p>
-<p>Runs the method in the same thread as posted. For example, if an event is posted from main thread, the subscribing method also runs in the main thread. If an event is posted in a seperate thread, the subscribing method runs in the same seperate method</p>
-<p>This is the default mode, if no mode has been provided::</p>
-<p>@subscribe(threadMode = Mode.POSTING, onEvent=MessageEvent)
-def func(self, event):
-# Do something
-pass</p>
-</li>
-<li>
-<p>PARALLEL::</p>
-<p>Runs the method in a seperate python thread::</p>
-<p>@subscribe(threadMode = Mode.PARALLEL, onEvent=MessageEvent)
-def func(self, event):
-# Do something
-pass</p>
-</li>
-<li>
-<p>GREENLET::</p>
-<p>Runs the method in a greenlet using gevent library::</p>
-<p>@subscribe(threadMode = Mode.GREENLET, onEvent=MessageEvent)
-def func(self, event):
-# Do something
-pass</p>
-</li>
-<li>
-<p>BACKGROUND::</p>
-<p>Adds the subscribing methods to a queue which is executed by workers::</p>
-<p>@subscribe(threadMode = Mode.BACKGROUND, onEvent=MessageEvent)
-def func(self, event):
-# Do something
-pass</p>
-</li>
-<li>
-<p>CONCURRENT::</p>
-<p>Runs the method in a seperate python process::</p>
-<p>@subscribe(threadMode = Mode.CONCURRENT, onEvent=MessageEvent)
-def func(self, event):
-# Do something
-pass</p>
-</li>
+<li>Lets clone the first repo <code>blog</code> to house all our project files.</li>
 </ol>
-<p>Adding pyeventbus to your project::</p>
-<pre><code>pip install pyeventbus
-</code></pre>
-<p>Example::</p>
-<pre><code>git clone https://github.com/n89nanda/pyeventbus.git
+<pre tabindex="0"><code>~ % git clone https://github.com/rockstarblogger/blog.git
+~ % cd blog
+blog %  
+</code></pre><ol start="2">
+<li>Create a new Hugo site <code>rockstarblogger</code> inside the new directory <code>~/blog</code></li>
+</ol>
+<pre tabindex="0"><code>blog % hugo new site rockstarblogger
+Congratulations! Your new Hugo site is created in ~/blog/rockstarblogger.
+</code></pre><ol start="3">
+<li>Download the theme under <code>~/blog/rockstarblogger/themes</code> directory</li>
+</ol>
+<pre tabindex="0"><code>blog % cd rockstarblogger/themes
+themes % git clone https://github.com/spf13/hyde.git
+Cloning into &#39;hyde&#39;...
+remote: Enumerating objects: 424, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 424 (delta 0), reused 2 (delta 0), pack-reused 419
+Receiving objects: 100% (424/424), 837.74 KiB | 7.41 MiB/s, done.
+Resolving deltas: 100% (199/199), done.
+</code></pre><ol start="4">
+<li>Append the theme <code>theme = 'hyde'</code> to <code>~/blog/rockstarblogger/config.toml</code></li>
+</ol>
+<pre tabindex="0"><code>blog % cd rockstarblogger
+rockstarblogger % vi config.toml
 
-cd pyeventbus
+baseURL = &#39;https://rockstarblogger.github.io/&#39;
+languageCode = &#39;en-us&#39;
+title = &#39;rockstarblogger blog&#39;
+theme = &#39;hyde&#39;
+</code></pre><ol start="5">
+<li>Lets run this using <code>hugo serve</code> and our new site should be live at <code>http://localhost:1313/ </code>!!!</li>
+</ol>
+<pre tabindex="0"><code>rockstarblogger % hugo serve
+Start building sites … 
+hugo v0.101.0+extended darwin/amd64 BuildDate=unknown
 
-virtualenv venv
+                   | EN  
+-------------------+-----
+  Pages            | 10  
+  Paginator pages  |  0  
+  Non-page files   |  0  
+  Static files     |  6  
+  Processed images |  0  
+  Aliases          |  0  
+  Sitemaps         |  1  
+  Cleaned          |  0  
 
-source venv/bin/activate
+Built in 22 ms
+Watching for changes in ~/blog/rockstarblogger/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in ~/blog/rockstarblogger/config.toml
+Environment: &#34;development&#34;
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+</code></pre><h2 id="create-a-new-post-and-verify-it-locally">Create a new post and verify it locally</h2>
+<ol>
+<li>Now that we have tested our new site, lets create our first blog post</li>
+</ol>
+<pre tabindex="0"><code>rockstarblogger % hugo new posts/firstpost.md
+rockstarblogger % vi content/posts/firstpost.md
+</code></pre><blockquote>
+<p>Set <code>draft: false</code> in the markdown files to be able to view it.</p>
+</blockquote>
+<ol start="2">
+<li>Lets verify and see our new blog post locally</li>
+</ol>
+<pre tabindex="0"><code>rockstarblogger % hugo serve
+</code></pre><h2 id="generate-static-files-and-see-it-live-in-github-pages">Generate static files and see it live in Github Pages</h2>
+<ol>
+<li>Lets add <code>rockstarblogger/rockstarblogger.github.io</code> as git sub-module and rename it to our existing <code>public</code> folder</li>
+</ol>
+<pre tabindex="0"><code>rockstarblogger % git submodule add -b main https://github.com/rockstarblogger/rockstarblogger.github.io.git public
+</code></pre><ol start="2">
+<li>Now if we navigate to <code>public</code> folder, we should see the 1 commit with the new <code>origin</code>.</li>
+</ol>
+<pre tabindex="0"><code>rockstarblogger % cd public &amp;&amp; ls
+public % README.md
+public % git remote -v 
+origin  https://github.com/rockstarblogger/rockstarblogger.github.io.git (fetch)
+origin  https://github.com/rockstarblogger/rockstarblogger.github.io.git (push)
+</code></pre><ol start="3">
+<li>Generate static files using <code>hugo</code> cmd</li>
+</ol>
+<pre tabindex="0"><code>rockstarblogger % hugo
+Start building sites … 
+hugo v0.101.0+extended darwin/amd64 BuildDate=unknown
 
-pip install pyeventbus
+                   | EN  
+-------------------+-----
+  Pages            | 10  
+  Paginator pages  |  0  
+  Non-page files   |  0  
+  Static files     |  6  
+  Processed images |  0  
+  Aliases          |  0  
+  Sitemaps         |  1  
+  Cleaned          |  0  
 
-python example.py
-</code></pre>
-<p>Benchmarks and Performance::</p>
-<pre><code>    Refer /pyeventbus/tests/benchmarks.txt for performance benchmarks on CPU, I/O and networks heavy tasks.
-    
-    Run /pyeventbus/tests/test.sh to generate the same benchmarks.
-    
-    Performance comparison between all the modes with Python and Cython
-</code></pre>
-<p>.. image:: pyeventbus/tests/Benchmarks.png
-:width: 2000px
-:align: center
-:height: 1000px
-:alt: alternate text</p>
-<p>Inspiration</p>
-<pre><code>    Inspired by Eventbus from greenrobot: https://github.com/greenrobot/EventBus
-</code></pre>
+Total in 44 ms
+</code></pre><ol start="4">
+<li>Verify the new static files under <code>public</code> directory</li>
+</ol>
+<pre tabindex="0"><code>rockstarblogger % cd public &amp;&amp; ls
+</code></pre><ol start="5">
+<li>Push the static files to <code>rockstarblogger/rockstarblogger.github.io</code></li>
+</ol>
+<pre tabindex="0"><code>public % git add .
+public % git commit -m &#34;first commit containing all static files&#34;
+public % git push origin main
+</code></pre><ol start="6">
+<li>Enable Github pages under <code>Settings</code> for <code>rockstarblogger/rockstarblogger.github.io</code> and see the blog live under <code>https://rockstarblogger.github.io</code></li>
+</ol>
+<h2 id="enable-custom-sub-domain">Enable Custom Sub Domain</h2>
+<ol>
+<li>Add a <code>CNAME</code> entry pointing to <code>https://rockstarblogger.github.io</code> with <code>Host</code> set as <code>blog</code> as an example. This will allow your blog to be accessible under <code>https://blog.example.com</code></li>
+<li>Add a new file with filename <code>CNAME</code> in <code>rockstarblogger.github.io</code> repo with one single line <code>blog.example.com</code>.</li>
+<li>Push and see the blog live!!</li>
+</ol>
 
 </div>
 
