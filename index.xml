@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 20 Aug 2022 17:36:21 -0400</lastBuildDate><atom:link href="https://blog.nandabhat.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to create a blog using Hugo and Github Pages</title>
-      <link>https://blog.nandabhat.com/posts/my-first-post/</link>
+      <link>https://blog.nandabhat.com/posts/create-blog-using-hugo-and-github-pages/</link>
       <pubDate>Sat, 20 Aug 2022 17:36:21 -0400</pubDate>
       
-      <guid>https://blog.nandabhat.com/posts/my-first-post/</guid>
+      <guid>https://blog.nandabhat.com/posts/create-blog-using-hugo-and-github-pages/</guid>
       <description>We will be building a blog from scratch using the amazing Hugo framework and deploying it for free using Github Pages with a custom subdomain!
 Why Hugo? Hugo is simple, fast and is written in Go. It has amazing community support and a wide varity of themes.
 Personally, I just want to write my blog posts as markdown files, push it to github and want it to be live with zero work and Hugo allows me to do just that!</description>
