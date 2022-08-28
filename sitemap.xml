@@ -3,16 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.nandabhat.com/posts/create-blog-using-hugo-and-github-pages/</loc>
-    <lastmod>2022-08-20T17:36:21-04:00</lastmod>
+    <lastmod>2022-08-27T20:16:16-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://blog.nandabhat.com/</loc>
-    <lastmod>2022-08-20T17:36:21-04:00</lastmod>
+    <lastmod>2022-08-27T20:16:16-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://blog.nandabhat.com/posts/</loc>
-    <lastmod>2022-08-20T17:36:21-04:00</lastmod>
+    <lastmod>2022-08-27T20:16:16-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://blog.nandabhat.com/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://blog.nandabhat.com/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
