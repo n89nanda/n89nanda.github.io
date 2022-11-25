@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>How to create a blog using Hugo and Github Pages</title>
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=191cce1d63" />
+
+	<script>
+			var siteUrl = 'https://n89nanda.github.io';
+	</script>
+
+	<script>
+			var localTheme = localStorage.getItem('attila_theme');
+			switch (localTheme) {
+					case 'dark':
+							document.documentElement.classList.add('theme-dark');
+							break;
+					case 'light':
+							document.documentElement.classList.add('theme-light');
+							break;
+					default:
+							break;
+			}
+	</script>
+
+
+
+			<style>
+				.theme-dark:root {
+				  --ghost-accent-color: #ff6633;
+				}
+				@media (prefers-color-scheme: dark) {
+				  html:not(.theme-light):root {
+				    --ghost-accent-color: #ff6633;
+				  }
+				}
+			</style>
+
+	<link rel="canonical" href="https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Nanda Bhat&#x27;s Personal Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to create a blog using Hugo and Github Pages" />
+    <meta property="og:description" content="We will be building a blog from scratch using the amazing Hugo framework and deploying it for free using Github Pages with a custom subdomain!
+
+
+
+Why Hugo?
+
+
+Hugo is simple, fast and is written in Go. It has amazing community support and a wide varity of themes.
+
+
+Personally, I just" />
+    <meta property="og:url" content="https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta property="article:published_time" content="2022-11-25T01:09:19.000Z" />
+    <meta property="article:modified_time" content="2022-11-25T01:09:19.000Z" />
+    <meta property="article:tag" content="quick-start" />
+    <meta property="article:tag" content="hugo" />
+    <meta property="article:tag" content="blog" />
+    <meta property="article:tag" content="cms" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to create a blog using Hugo and Github Pages" />
+    <meta name="twitter:description" content="We will be building a blog from scratch using the amazing Hugo framework and deploying it for free using Github Pages with a custom subdomain!
+
+
+
+Why Hugo?
+
+
+Hugo is simple, fast and is written in Go. It has amazing community support and a wide varity of themes.
+
+
+Personally, I just" />
+    <meta name="twitter:url" content="https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Nanda" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="quick-start, hugo, blog, cms" />
+    <meta name="twitter:site" content="@may_9819" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1307" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Nanda Bhat&#x27;s Personal Blog",
+        "url": "https://n89nanda.github.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://n89nanda.github.io/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Nanda",
+        "url": "https://n89nanda.github.io/author/nanda/",
+        "sameAs": []
+    },
+    "headline": "How to create a blog using Hugo and Github Pages",
+    "url": "https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages/",
+    "datePublished": "2022-11-25T01:09:19.000Z",
+    "dateModified": "2022-11-25T01:09:19.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&ixlib=rb-4.0.3&q=80&w=2000",
+        "width": 2000,
+        "height": 1307
+    },
+    "keywords": "quick-start, hugo, blog, cms",
+    "description": "We will be building a blog from scratch using the amazing Hugo framework and deploying it for free using Github Pages with a custom subdomain!\n\n\n\nWhy Hugo?\n\n\nHugo is simple, fast and is written in Go. It has amazing community support and a wide varity of themes.\n\n\nPersonally, I just want to write my blog posts as markdown files, push it to github and want it to be live with zero work and Hugo allows me to do just that!\n\n\n\nContents\n\n\n * Installs and setups\n * Create a new blog and run it locally\n",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://n89nanda.github.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.23" />
+    <link rel="alternate" type="application/rss+xml" title="Nanda Bhat&#x27;s Personal Blog" href="https://n89nanda.github.io/rss/" />
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f4c83a252d260fe408f6400073" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://n89nanda.github.io/" crossorigin="anonymous"></script>
+    <script defer src="/public/cards.min.js?v=191cce1d63"></script><style>:root {--ghost-accent-color: #FF1A75;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=191cce1d63">
+</head>
+
+<body class="post-template tag-quick-start tag-hugo tag-blog tag-cms">
+
+	<div class="nav-header">
+		<nav class="nav-wrapper" aria-label="Main">
+				<ul>
+		<li class="nav-home"><a href="https://n89nanda.github.io/"><span>Home</span></a></li>
+		<li class="nav-about"><a href="https://n89nanda.github.io/about/"><span>About</span></a></li>
+</ul>
+
+				<ul class="nav-meta">
+  <li class="nav-twitter">
+    <a aria-label="Twitter" href="https://twitter.com/may_9819" title="@may_9819" target="_blank">
+      <i class="icon icon-twitter" aria-hidden="true"></i>
+      <span>@may_9819</span>
+    </a>
+  </li>
+  <li class="nav-search">
+    <a title="Search" data-ghost-search>
+      <i class="icon icon-search" aria-hidden="true"></i>
+      <span>Search</span>
+    </a>
+  </li>
+</ul>
+		</nav>
+
+		<div class="nav-wrapper-control">
+			<div class="inner">
+				<a class="nav-menu" role="button"><i class="icon icon-menu" aria-hidden="true"></i>Menu</a>
+				<a class="nav-search" title="Search" role="button" data-ghost-search><i class="icon icon-search" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="nav-close" role="button" aria-label="Close"></div>
+
+	<section class="page-wrapper">
+
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header class="post-header  has-cover ">
+	<div class="inner">
+		<span class="post-info">
+			<span class="post-type">Article</span>
+			<span class="post-count">quick-start</span>
+		</span>
+		<h1 class="post-title">How to create a blog using Hugo and Github Pages</h1>
+		<div class="post-meta">
+			<div class="post-meta-avatars">
+					<figure class="post-meta-avatar avatar">
+					</figure>
+			</div>
+			<h4 class="post-meta-author"><a href="/author/nanda/">Nanda</a></h4>
+			<time datetime="25-11-2022">25 Nov 2022</time> &bull; 3 min read
+		</div>
+		<div class="post-cover cover">
+			<img
+			srcset="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;320 320w,
+              https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;640 640w,
+              https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+              https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1920 1920w"
+      src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fGdpdGh1YnxlbnwwfHx8fDE2NjkzMzg1MDQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1920"
+			alt="How to create a blog using Hugo and Github Pages" />
+		</div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-quick-start tag-hugo tag-blog tag-cms">
+		<div class="inner">
+
+			<section class="post-content">
+				<!--kg-card-begin: markdown--><p>We will be building a blog from scratch using the amazing <a href="https://gohugo.io/">Hugo</a> framework and deploying it for free using <a href="https://pages.github.com/">Github Pages</a> with a custom subdomain!</p>
+<h2 id="why-hugo">Why Hugo?</h2>
+<p>Hugo is simple, fast and is written in Go. It has amazing community support and a wide varity of themes.</p>
+<p>Personally, I just want to write my blog posts as markdown files, push it to github and want it to be live with zero work and Hugo allows me to do just that!</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#installs-and-setups">Installs and setups</a></li>
+<li><a href="#create-a-new-blog-and-run-it-locally">Create a new blog and run it locally</a></li>
+<li><a href="#create-a-new-post-and-verify-it-locally">Create a new post and verify it locally</a></li>
+<li><a href="#generate-static-files-and-see-it-live-in-github-pages">Generate static files and see it live in Github Pages</a></li>
+<li><a href="#enable-custom-sub-domain">Enable Custom Sub Domain</a></li>
+</ul>
+<h2 id="installs-and-setups">Installs and setups</h2>
+<ol>
+<li>Install <code>hugo</code> CLI using homebrew
+<ul>
+<li><code>brew install hugo</code></li>
+</ul>
+</li>
+<li>Setup 2 new git repository using GitHub. For e.g. Lets say your account name is <code>rockstarblogger</code>.
+<ul>
+<li><code>rockstarblogger/blog</code> - This will contain our static blogs + Hugo project files</li>
+<li><code>rockstarblogger/rockstarblogger.github.io</code> - This will contain only our final static files required for our blog.
+<ul>
+<li>Create an empty <code>README.md</code> commit. This will come in handy later.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Note the name of the second repo, Github makes it easy if you follow the naming convention of <code>&lt;account_name&gt;.github.io</code></p>
+</blockquote>
+</li>
+<li>Choose a <a href="https://themes.gohugo.io/">Hugo Theme</a>. We will be using <a href="https://themes.gohugo.io/themes/hyde/">Hyde</a> for this new blog.</li>
+</ol>
+<h2 id="create-a-new-blog-and-run-it-locally">Create a new blog and run it locally</h2>
+<ol>
+<li>Lets clone the first repo <code>blog</code> to house all our project files.</li>
+</ol>
+<pre><code>~ % git clone https://github.com/rockstarblogger/blog.git
+~ % cd blog
+blog %  
+</code></pre>
+<ol start="2">
+<li>Create a new Hugo site <code>rockstarblogger</code> inside the new directory <code>~/blog</code></li>
+</ol>
+<pre><code>blog % hugo new site rockstarblogger
+Congratulations! Your new Hugo site is created in ~/blog/rockstarblogger.
+</code></pre>
+<ol start="3">
+<li>Download the theme under <code>~/blog/rockstarblogger/themes</code> directory</li>
+</ol>
+<pre><code>blog % cd rockstarblogger/themes
+themes % git clone https://github.com/spf13/hyde.git
+Cloning into 'hyde'...
+remote: Enumerating objects: 424, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 424 (delta 0), reused 2 (delta 0), pack-reused 419
+Receiving objects: 100% (424/424), 837.74 KiB | 7.41 MiB/s, done.
+Resolving deltas: 100% (199/199), done.
+</code></pre>
+<ol start="4">
+<li>Append the theme <code>theme = 'hyde'</code> to <code>~/blog/rockstarblogger/config.toml</code></li>
+</ol>
+<pre><code>blog % cd rockstarblogger
+rockstarblogger % vi config.toml
+
+baseURL = 'https://rockstarblogger.github.io/'
+languageCode = 'en-us'
+title = 'rockstarblogger blog'
+theme = 'hyde'
+</code></pre>
+<ol start="5">
+<li>Lets run this using <code>hugo serve</code> and our new site should be live at <code>http://localhost:1313/ </code>!!!</li>
+</ol>
+<pre><code>rockstarblogger % hugo serve
+Start building sites … 
+hugo v0.101.0+extended darwin/amd64 BuildDate=unknown
+
+                   | EN  
+-------------------+-----
+  Pages            | 10  
+  Paginator pages  |  0  
+  Non-page files   |  0  
+  Static files     |  6  
+  Processed images |  0  
+  Aliases          |  0  
+  Sitemaps         |  1  
+  Cleaned          |  0  
+
+Built in 22 ms
+Watching for changes in ~/blog/rockstarblogger/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in ~/blog/rockstarblogger/config.toml
+Environment: &quot;development&quot;
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+</code></pre>
+<h2 id="create-a-new-post-and-verify-it-locally">Create a new post and verify it locally</h2>
+<ol>
+<li>Now that we have tested our new site, lets create our first blog post</li>
+</ol>
+<pre><code>rockstarblogger % hugo new posts/firstpost.md
+rockstarblogger % vi content/posts/firstpost.md
+</code></pre>
+<blockquote>
+<p>Set <code>draft: false</code> in the markdown files to be able to view it.</p>
+</blockquote>
+<ol start="2">
+<li>Lets verify and see our new blog post locally</li>
+</ol>
+<pre><code>rockstarblogger % hugo serve
+</code></pre>
+<h2 id="generate-static-files-and-see-it-live-in-github-pages">Generate static files and see it live in Github Pages</h2>
+<ol>
+<li>Lets add <code>rockstarblogger/rockstarblogger.github.io</code> as git sub-module and rename it to our existing <code>public</code> folder</li>
+</ol>
+<pre><code>rockstarblogger % git submodule add -b main https://github.com/rockstarblogger/rockstarblogger.github.io.git public
+</code></pre>
+<ol start="2">
+<li>Now if we navigate to <code>public</code> folder, we should see the 1 commit with the new <code>origin</code>.</li>
+</ol>
+<pre><code>rockstarblogger % cd public &amp;&amp; ls
+public % README.md
+public % git remote -v 
+origin  https://github.com/rockstarblogger/rockstarblogger.github.io.git (fetch)
+origin  https://github.com/rockstarblogger/rockstarblogger.github.io.git (push)
+</code></pre>
+<ol start="3">
+<li>Generate static files using <code>hugo</code> cmd</li>
+</ol>
+<pre><code>rockstarblogger % hugo
+Start building sites … 
+hugo v0.101.0+extended darwin/amd64 BuildDate=unknown
+
+                   | EN  
+-------------------+-----
+  Pages            | 10  
+  Paginator pages  |  0  
+  Non-page files   |  0  
+  Static files     |  6  
+  Processed images |  0  
+  Aliases          |  0  
+  Sitemaps         |  1  
+  Cleaned          |  0  
+
+Total in 44 ms
+</code></pre>
+<ol start="4">
+<li>Verify the new static files under <code>public</code> directory</li>
+</ol>
+<pre><code>rockstarblogger % cd public &amp;&amp; ls
+</code></pre>
+<ol start="5">
+<li>Push the static files to <code>rockstarblogger/rockstarblogger.github.io</code></li>
+</ol>
+<pre><code>public % git add .
+public % git commit -m &quot;first commit containing all static files&quot;
+public % git push origin main
+</code></pre>
+<ol start="6">
+<li>Enable Github pages under <code>Settings</code> for <code>rockstarblogger/rockstarblogger.github.io</code> and see the blog live under <code>https://rockstarblogger.github.io</code></li>
+</ol>
+<h2 id="enable-custom-sub-domain">Enable Custom Sub Domain</h2>
+<ol>
+<li>Add a <code>CNAME</code> entry pointing to <code>https://rockstarblogger.github.io</code> with <code>Host</code> set as <code>blog</code> as an example. This will allow your blog to be accessible under <code>https://blog.example.com</code></li>
+<li>Add a new file with filename <code>CNAME</code> in <code>rockstarblogger.github.io</code> repo with one single line <code>blog.example.com</code>.</li>
+<li>Push and see the blog live!!</li>
+</ol>
+<!--kg-card-end: markdown-->
+			</section>
+
+			<section class="post-footer">
+
+				<div class="post-share">
+					<span class="post-info-label">Share</span>
+					<a title="Twitter" aria-label="Twitter" class="twitter" href="https://twitter.com/share?text=How to create a blog using Hugo and Github Pages&url=https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="icon icon-twitter" aria-hidden="true"></i>
+					</a>
+					<a title="Facebook" aria-label="Facebook" class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="icon icon-facebook" aria-hidden="true"></i>
+					</a>
+					<a title="LinkedIn" aria-label="LinkedIn" class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages//&amp;title=How to create a blog using Hugo and Github Pages" onclick="window.open(this.href, 'linkedin-share', 'width=930,height=720');return false;">
+						<i class="icon icon-linkedin" aria-hidden="true"></i>
+					</a>
+					<a title="Email" aria-label="Email" class="email" href="mailto:?subject=How to create a blog using Hugo and Github Pages&amp;body=https://n89nanda.github.io/how-to-create-a-blog-using-hugo-and-github-pages/">
+						<i class="icon icon-mail" aria-hidden="true"></i>
+					</a>
+				</div>
+
+				<aside class="post-tags">
+					<span class="post-info-label">Topic</span>
+					<a href="/tag/quick-start/">quick-start</a> <a href="/tag/hugo/">hugo</a> <a href="/tag/blog/">blog</a> <a href="/tag/cms/">cms</a>
+				</aside>
+
+			</section>
+
+
+
+
+			<aside class="post-nav">
+
+
+					<a class="post-nav-prev" href="/how-to-parse-command-line-arguments-in-go/">
+						<section class="post-nav-teaser">
+							<i class="icon icon-arrow-right" aria-label="Previous post"></i>
+							<h2 class="post-nav-title">How to parse Command Line arguments in Go</h2>
+							<p class="post-nav-excerpt">Simple snippet to retrieve and validate CLI args in Go&hellip;</p>
+							<p class="post-nav-meta"><time datetime="25-11-2022">25 Nov 2022</time></p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+		</div>
+	</article>
+</main>
+
+
+
+
+		<div class="nav-footer">
+			<nav class="nav-wrapper" aria-label="Footer">
+				<span class="nav-copy">Nanda Bhat&#x27;s Personal Blog &copy; 2022  <a class="nav-rss" title="RSS" href="https://n89nanda.github.io/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
+				<ul>
+		<li class="nav-sign-up"><a href="#/portal/"><span>Sign up</span></a></li>
+</ul>
+
+				<span class="nav-credits">Published with <a href="https://ghost.org">Ghost</a> &bull; Theme <a href="https://github.com/zutrinken/attila">Attila</a> &bull; <a class="menu-item js-theme" href="#" data-system="System theme" data-dark="Dark theme" data-light="Light theme"><span class="theme-icon"></span><span class="theme-text">System theme</span> </a> </span>
+			</nav>
+		</div>
+
+	</section>
+
+	<script type="text/javascript" src="/assets/js/script.js?v=191cce1d63"></script>
+
+	<script>
+  $(document).ready(function () {
+		var viewport = $(window);
+		var post = $('.post-content');
+		// Responsive videos with fitVids
+    post.fitVids();
+		// Format code blocks and add line numbers
+		function codestyling() {
+	    $('pre code').each(function(i, e) {
+				// Code highlight
+	      hljs.highlightElement(e);
+	      // No lines for plain text blocks
+	      if (!$(this).hasClass('language-text')) {
+	        var code = $(this);
+					// Calculate amount of lines
+	        var lines = code.html().split(/\n(?!$)/g).length;
+	        var numbers = [];
+	        if (lines > 1) {
+	          lines++;
+	        }
+	        for (i = 1; i < lines; i++) {
+	          numbers += '<span class="line" aria-hidden="true">' + i + '</span>';
+	        }
+	        code.parent().append('<div class="lines">' + numbers + '</div>');
+	      }
+	    });
+	  }
+	  codestyling();
+		// Reading progress bar on window top
+	  function readingProgress() {
+			var postBottom = post.offset().top + post.height();
+			var viewportHeight = viewport.height();
+      var progress = 100 - (((postBottom - (viewport.scrollTop() + viewportHeight) + viewportHeight / 3) / (postBottom - viewportHeight + viewportHeight / 3)) * 100);
+      $('.progress-bar').css('width', progress + '%');
+      (progress > 100) ? $('.progress-container').addClass('complete'): $('.progress-container').removeClass('complete');
+	  }
+	  readingProgress();
+		// Trigger reading progress
+	  viewport.on({
+	    'scroll': function() {
+	      readingProgress();
+	    },
+	    'resize': function() {
+	      readingProgress();
+	    },
+	    'orientationchange': function() {
+	      readingProgress();
+	    }
+	  });
+
+  });
+</script>
+
+
+	
+
+</body>
+</html>
